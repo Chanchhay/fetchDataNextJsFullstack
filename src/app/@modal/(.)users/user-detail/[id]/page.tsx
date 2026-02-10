@@ -12,7 +12,7 @@ export default async function Page({
     const user = await loadUserDetail(id);
     return (
         <Suspense fallback={<h1>loading...</h1>}>
-            <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+            <div className="h-full w-full flex items-center justify-center">
                 <div className="p-8 border w-96 shadow-lg rounded-md bg-white">
                     <div className="text-center">
                         <h3 className="text-2xl font-bold text-gray-900">
@@ -25,8 +25,8 @@ export default async function Page({
                             <Image
                                 alt="user-image"
                                 src={user.avatar}
-                                width={200}
-                                height={200}
+                                width={600}
+                                height={600}
                                 unoptimized
                             />
                         </div>
