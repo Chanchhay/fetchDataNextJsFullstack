@@ -10,3 +10,9 @@ export async function loadUser() {
     const result = await res.json();
     return result;
 }
+
+export async function loadUserDetail(id: string) {
+    const res = await fetch(`${BASE_URL}/api/v1/users/${id}`);
+    const result = await res.json();
+    return result;
+}
