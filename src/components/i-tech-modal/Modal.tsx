@@ -6,10 +6,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from "../ui/dialog";
-import { Suspense } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { SkeletonCard } from "../i-tech-skeleton/Skeleton-card";
 
 type User = {
     name: string;
