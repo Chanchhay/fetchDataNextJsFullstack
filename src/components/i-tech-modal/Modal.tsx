@@ -20,7 +20,6 @@ export default function Modal({ user }: { user: User }) {
     const router = useRouter();
     return (
         <Dialog open={true} onOpenChange={() => router.back()}>
-            <Suspense fallback={<SkeletonCard />}>
                 <DialogContent>
                     <DialogHeader>
                         <DialogTitle>{user.name}</DialogTitle>
@@ -34,7 +33,6 @@ export default function Modal({ user }: { user: User }) {
                         />
                     </DialogHeader>
                 </DialogContent>
-            </Suspense>
         </Dialog>
     );
 }
