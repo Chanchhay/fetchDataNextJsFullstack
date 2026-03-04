@@ -27,9 +27,8 @@ export function ProductCard({
                     src={images[0]}
                     alt="image"
                     className="relative z-20 w-full object-contain rounded-2xl"
-                    width={200}
-                    height={200}
-                    unoptimized
+                    width={600}
+                    height={600}
                 />
                 <CardHeader>
                     <CardAction>

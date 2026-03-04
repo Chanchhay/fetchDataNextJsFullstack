@@ -1,7 +1,7 @@
 import { loadUserDetail } from "@/lib/fetchData";
 import Image from "next/image";
 
-export default async function page({
+export default async function Page({
     params,
 }: {
     params: Promise<{ id: string }>;

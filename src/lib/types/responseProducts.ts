@@ -1,12 +1,3 @@
-export type Category = {
-    id: number;
-    name: string;
-    slug: string;
-    image: string;
-    creationAt: string;
-    updatedAt: string;
-};
-
 export type ResponseProduct = {
     id: number;
     title: string;
@@ -25,3 +16,13 @@ export type ResponseUser = {
     email: string;
     avatar: string;
 };
+
+export type ProductUpload = {
+    title: string;
+    description: string;
+    price: number;
+    category: string;
+    images: string[];
+};
+
+export type Category = { id: number; name: string };

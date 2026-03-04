@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function loadProduct() {
     const res = await fetch(`${BASE_URL}/api/v1/products`);
     const result = await res.json();

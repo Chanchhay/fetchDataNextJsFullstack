@@ -1,6 +1,6 @@
 import { UserCard } from "@/components/i-tech-cards/UserCard";
 import { loadUser } from "@/lib/fetchData";
-import { ResponseUser } from "@/lib/types/responProducts";
+import { ResponseUser } from "@/lib/types/responseProducts";
 import Link from "next/link";
 import { Suspense } from "react";
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { ModeToggle } from "../ToggleButton";
 
-export default function navbar() {
+export default function Navbar() {
     return (
         <nav className="bg-white dark:bg-gray-600 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,6 +19,12 @@ export default function navbar() {
                             className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
                         >
                             Users
+                        </Link>
+                        <Link
+                            href="/product-upload"
+                            className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                        >
+                            Upload Product
                         </Link>
                         <div className="inline-flex items-center">
                             <ModeToggle />
