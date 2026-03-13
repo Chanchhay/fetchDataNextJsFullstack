@@ -15,6 +15,12 @@ export default function Navbar() {
                             Products
                         </Link>
                         <Link
+                            href="/products-rtk"
+                            className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                        >
+                            Products-rtk
+                        </Link>
+                        <Link
                             href="/users"
                             className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
                         >
@@ -25,6 +31,12 @@ export default function Navbar() {
                             className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
                         >
                             Upload Product
+                        </Link>
+                        <Link
+                            href="/product-upload-rtk"
+                            className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                        >
+                            Upload Product RTK
                         </Link>
                         <div className="inline-flex items-center">
                             <ModeToggle />

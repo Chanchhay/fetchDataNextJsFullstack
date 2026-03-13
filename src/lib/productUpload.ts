@@ -7,6 +7,14 @@ export type CreateProduct = {
     categoryId: number;
     images: string[];
 };
+export type CreateProductv2 = {
+    id: number,
+    title: string;
+    description: string;
+    price: number;
+    categoryId: number;
+    images: string[];
+};
 
 export async function uploadProduct(product: CreateProduct) {
     const res = await fetch(`${API}/api/v1/products`, {
