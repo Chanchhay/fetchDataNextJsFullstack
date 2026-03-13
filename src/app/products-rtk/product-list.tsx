@@ -25,7 +25,7 @@ export default function ProductList() {
             {products?.map((product: CreateProductv2) => (
                 <Link
                     key={product.id}
-                    href={`/products-rtk/product-detail/${product.id}`}
+                    href={`/products-rtk/${product.id}`}
                 >
                     <ProductCard
                         title={product.title}

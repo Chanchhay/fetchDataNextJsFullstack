@@ -15,7 +15,7 @@ export const productApi = fakeStoreApi.injectEndpoints({
             }),
             invalidatesTags: ['products']
         }),
-        getProductsById: builder.query<CreateProductv2, void>({
+        getProductsById: builder.query<CreateProductv2, string>({
             query: (id) => `/api/v1/products/${id}`,
             providesTags: ['products']
         }),
