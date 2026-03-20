@@ -1,7 +1,7 @@
 "use client";
 import { useGetProductsByIdQuery } from "@/lib/features/products/productApi";
 
-export default function ProductDetailCard({ id }: { id: string }) {
+export default function ProductDetailCard({ id }: { id: number }) {
     const product = useGetProductsByIdQuery(id);
 
     return (

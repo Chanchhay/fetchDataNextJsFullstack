@@ -38,6 +38,12 @@ export default function Navbar() {
                         >
                             Upload Product RTK
                         </Link>
+                        <Link
+                            href="/dashboard"
+                            className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                        >
+                            Dashboard
+                        </Link>
                         <div className="inline-flex items-center">
                             <ModeToggle />
                         </div>

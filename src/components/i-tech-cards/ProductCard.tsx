@@ -29,13 +29,16 @@ export function ProductCard({
                     className="relative z-20 w-full object-contain rounded-2xl"
                     width={600}
                     height={600}
+                    unoptimized
                 />
                 <CardHeader>
                     <CardAction>
                         <Badge variant="secondary">Featured</Badge>
                     </CardAction>
                     <CardTitle>{title}</CardTitle>
-                    <CardDescription className="line-clamp-2">{description}</CardDescription>
+                    <CardDescription className="line-clamp-2">
+                        {description}
+                    </CardDescription>
                 </CardHeader>
                 <CardFooter>
                     <Button className="w-full">View Event</Button>

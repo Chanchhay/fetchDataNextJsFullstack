@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/i-tech-navbar/navbar";
 import StoreProvider from "./StoreProvider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -39,9 +40,11 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <Navbar />
-                        {modal}
-                        {children}
+                        <TooltipProvider>
+                            <Navbar />
+                            {modal}
+                            {children}
+                        </TooltipProvider>
                     </ThemeProvider>
                 </StoreProvider>
             </body>

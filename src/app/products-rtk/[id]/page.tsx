@@ -3,7 +3,7 @@ import ProductDetailCard from "./product-detail";
 export default async function Page({
     params,
 }: {
-    params: Promise<{ id: string }>;
+    params: Promise<{ id: number }>;
 }) {
     const { id } = await params;
     return (

@@ -77,13 +77,13 @@ export default function ProductForm({ category }: { category: Category[] }) {
         try {
             const file = (values.imageFile as FileList | undefined)?.[0];
             if (!file) throw new Error("Please choose an image file");
-
+            const imageUrl = await uploadImage(file);
             const product = {
                 title: values.title,
                 price: Number(values.price),
                 description: values.description,
                 categoryId: Number(values.categoryId),
-                images: ["https://placeimg.com/640/480/any"],
+                images: [imageUrl],
             };
 
             const data = await addProduct(product).unwrap();
