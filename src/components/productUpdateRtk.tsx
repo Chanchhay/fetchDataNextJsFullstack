@@ -28,7 +28,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 export default function ProductFormUpdate({ id }: { id: number }) {
-    const API = process.env.NEXT_PUBLIC_API_URL ?? "https://api.escuelajs.co";
+    const API = process.env.NEXT_PUBLIC_API_URL;
 
     const [result, setResult] = useState<any>(null);
     const [error, setError] = useState("");

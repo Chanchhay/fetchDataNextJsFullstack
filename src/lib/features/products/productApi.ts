@@ -5,24 +5,24 @@ import { UpdateProductPayload } from "@/lib/types/updateProduct";
 export const productApi = fakeStoreApi.injectEndpoints({
     endpoints: (builder) => ({
         getProducts: builder.query<CreateProductv2[], void>({
-            query: () => "/api/v1/products",
+            query: () => "/products",
             providesTags: ["products"],
         }),
         addProducts: builder.mutation({
             query: (newProduct) => ({
-                url: "/api/v1/products",
+                url: "/products",
                 method: "POST",
                 body: newProduct,
             }),
             invalidatesTags: ["products"],
         }),
         getProductsById: builder.query<CreateProductv2, number>({
-            query: (id) => `/api/v1/products/${id}`,
+            query: (id) => `/products/${id}`,
             providesTags: ["products"],
         }),
         deleteProductsById: builder.mutation<void, number>({
             query: (id) => ({
-                url: `/api/v1/products/${id}`,
+                url: `/products/${id}`,
                 method: "DELETE",
             }),
             invalidatesTags: ["products"],
@@ -32,7 +32,7 @@ export const productApi = fakeStoreApi.injectEndpoints({
             UpdateProductPayload
         >({
             query: ({ id, body }) => ({
-                url: `/api/v1/products/${id}`,
+                url: `/products/${id}`,
                 method: "PUT",
                 body,
             }),
