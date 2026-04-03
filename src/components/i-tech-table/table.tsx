@@ -1,3 +1,8 @@
+"use client";
+
+import Link from "next/link";
+import { MoreHorizontalIcon } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
@@ -8,8 +13,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { TableCell } from "@/components/ui/table";
 import { useDeleteProductsByIdMutation } from "@/lib/features/products/productApi";
-import { MoreHorizontalIcon } from "lucide-react";
-import Link from "next/link";
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 export function TableActions({
     title,
@@ -30,35 +44,73 @@ export function TableActions({
             console.error("Delete failed:", err);
         }
     }
+
     return (
         <>
             <TableCell className="font-medium">{title}</TableCell>
             <TableCell>${price}</TableCell>
             <TableCell className="text-right">
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="size-8">
-                            <MoreHorizontalIcon />
-                            <span className="sr-only">Open menu</span>
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuItem asChild>
-                            <Link href={`/dashboard/products/${id}/edit`}>
-                                Edit
-                            </Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>Duplicate</DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem
-                            variant="destructive"
-                            onClick={onHandleDelete}
-                            disabled={isLoading}
-                        >
-                            {isLoading ? "Deleting..." : "Delete"}
-                        </DropdownMenuItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
+                <AlertDialog>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                className="size-8"
+                            >
+                                <MoreHorizontalIcon />
+                                <span className="sr-only">Open menu</span>
+                            </Button>
+                        </DropdownMenuTrigger>
+
+                        <DropdownMenuContent align="end">
+                            <DropdownMenuItem asChild>
+                                <Link href={`/dashboard/products/${id}/edit`}>
+                                    Edit
+                                </Link>
+                            </DropdownMenuItem>
+
+                            <DropdownMenuItem>Duplicate</DropdownMenuItem>
+
+                            <DropdownMenuSeparator />
+
+                            <AlertDialogTrigger asChild>
+                                <DropdownMenuItem
+                                    variant="destructive"
+                                    onSelect={(e) => e.preventDefault()}
+                                >
+                                    Delete
+                                </DropdownMenuItem>
+                            </AlertDialogTrigger>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    <AlertDialogContent>
+                        <AlertDialogHeader>
+                            <AlertDialogTitle>
+                                Delete this product?
+                            </AlertDialogTitle>
+                            <AlertDialogDescription>
+                                This will permanently delete{" "}
+                                <span className="font-medium">{title}</span>.
+                                This action cannot be undone.
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+
+                        <AlertDialogFooter>
+                            <AlertDialogCancel disabled={isLoading}>
+                                Cancel
+                            </AlertDialogCancel>
+                            <AlertDialogAction
+                                onClick={onHandleDelete}
+                                disabled={isLoading}
+                                className="bg-red-600 text-white hover:bg-red-700"
+                            >
+                                {isLoading ? "Deleting..." : "Yes, delete"}
+                            </AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
             </TableCell>
         </>
     );

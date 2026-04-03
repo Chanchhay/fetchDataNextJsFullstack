@@ -8,12 +8,29 @@ export type CreateProduct = {
     images: string[];
 };
 export type CreateProductv2 = {
-    id: number,
+    id: number;
     title: string;
     description: string;
     price: number;
     categoryId: number;
     images: string[];
+};
+
+export type CreateProductv3 = {
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    categoryId: number;
+    category: Category;
+    images: string[];
+};
+
+type Category = {
+    id: number;
+    name: string;
+    slug: string;
+    image: string;
 };
 
 export async function uploadProduct(product: CreateProduct) {

@@ -1,4 +1,4 @@
-import { CreateProductv2 } from "@/lib/productUpload";
+import { CreateProductv2, CreateProductv3 } from "@/lib/productUpload";
 import { fakeStoreApi } from "../api/api";
 import { UpdateProductPayload } from "@/lib/types/updateProduct";
 
@@ -8,7 +8,11 @@ export const productApi = fakeStoreApi.injectEndpoints({
             query: () => "/products",
             providesTags: ["products"],
         }),
-        addProducts: builder.mutation({
+
+        addProducts: builder.mutation<
+            CreateProductv2,
+            Omit<CreateProductv2, "id">
+        >({
             query: (newProduct) => ({
                 url: "/products",
                 method: "POST",
@@ -16,10 +20,12 @@ export const productApi = fakeStoreApi.injectEndpoints({
             }),
             invalidatesTags: ["products"],
         }),
-        getProductsById: builder.query<CreateProductv2, number>({
+
+        getProductsById: builder.query<CreateProductv3, number>({
             query: (id) => `/products/${id}`,
             providesTags: ["products"],
         }),
+
         deleteProductsById: builder.mutation<void, number>({
             query: (id) => ({
                 url: `/products/${id}`,
@@ -27,6 +33,7 @@ export const productApi = fakeStoreApi.injectEndpoints({
             }),
             invalidatesTags: ["products"],
         }),
+
         updateProductsById: builder.mutation<
             CreateProductv2,
             UpdateProductPayload
@@ -40,6 +47,7 @@ export const productApi = fakeStoreApi.injectEndpoints({
         }),
     }),
 });
+
 export const {
     useGetProductsQuery,
     useAddProductsMutation,

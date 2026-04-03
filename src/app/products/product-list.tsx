@@ -4,6 +4,7 @@ import { ResponseProduct } from "@/lib/types/responseProducts";
 
 export default async function ProductList() {
     const products: ResponseProduct[] = await loadProduct();
+    console.log(products)
     return (
         <>
             <section className="grid grid-cols-4 gap-4 m-24">
